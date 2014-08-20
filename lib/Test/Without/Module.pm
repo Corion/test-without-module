@@ -26,7 +26,7 @@ sub import {
     scrub( $module );
   };
 
-  unshift @INC, \&fake_module;
+  @INC = (\&fake_module, grep { !ref || $_ != \&fake_module } @INC);
 };
 
 sub fake_module {
