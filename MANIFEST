@@ -3,6 +3,8 @@ lib/Test/Without/Module.pm
 Makefile.PL
 MANIFEST
 MANIFEST.SKIP
+META.json
+META.yml
 README
 t/01-api.t
 t/02-block-use-module.t
