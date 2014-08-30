@@ -22,7 +22,8 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "0"
+            "File::Find" : "0",
+            "Test::More" : "0"
          }
       },
       "configure" : {
@@ -35,5 +36,10 @@
       }
    },
    "release_status" : "stable",
+   "resources" : {
+      "repository" : {
+         "url" : "http://github.com/Corion/test-without-module"
+      }
+   },
    "version" : "0.17"
 }

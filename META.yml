@@ -3,7 +3,8 @@ abstract: 'Test fallback behaviour in absence of modules'
 author:
   - 'Max Maischein <corion@cpan.org>'
 build_requires:
-  ExtUtils::MakeMaker: 0
+  File::Find: 0
+  Test::More: 0
 configure_requires:
   ExtUtils::MakeMaker: 0
 dynamic_config: 1
@@ -18,4 +19,6 @@ no_index:
     - t
     - inc
 requires: {}
+resources:
+  repository: http://github.com/Corion/test-without-module
 version: 0.17
