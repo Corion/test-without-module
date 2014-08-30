@@ -144,7 +144,7 @@ There is no lexical scoping
 
 Much improvement must be thanked to Aristotle from PerlMonks, he pointed me
 to a much less convoluted way to fake a module at
-L<http://www.perlmonks.org/index.pl?node=192635>.
+L<https://perlmonks.org?node=192635>.
 
 I also discussed with him an even more elegant way of overriding
 CORE::GLOBAL::require, but the parsing of the overridden subroutine
@@ -158,11 +158,27 @@ of a module.
 
 =head1 AUTHOR
 
-Copyright (c) 2003-2009 Max Maischein, E<lt>corion@cpan.orgE<gt>
+Copyright (c) 2003-2014 Max Maischein, E<lt>corion@cpan.orgE<gt>
 
 =head1 LICENSE
 
 This module is released under the same terms as Perl itself.
+
+=head1 REPOSITORY
+
+The public repository of this module is
+L<http://github.com/Corion/test-without-module>.
+
+=head1 SUPPORT
+
+The public support forum of this module is
+L<https://perlmonks.org/>.
+
+=head1 BUG TRACKER
+
+Please report bugs in this module via the RT CPAN bug queue at
+L<https://rt.cpan.org/Public/Dist/Display.html?Name=Test-Without-Module>
+or via mail to L<test-without-module-Bugs@rt.cpan.org>.
 
 =head1 SEE ALSO
 
