@@ -9,4 +9,6 @@ CVS/
 .old$
 ^Makefile$
 ^Releases/
-^Texts/
+^MANIFEST.bak$
+^MYMETA.*
+^.git
