@@ -1,7 +1,19 @@
 use ExtUtils::MakeMaker;
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
-WriteMakefile1(
+
+# Normalize version strings like 6.30_02 to 6.3002,
+# so that we can do numerical comparisons on it.
+my $eumm_version = $ExtUtils::MakeMaker::VERSION;
+$eumm_version =~ s/_//;
+
+my $module = 'Test::Without::Module';
+(my $main_file = "lib/$module.pm") =~ s!::!/!g;
+(my $distname = $module) =~ s!::!-!g;
+
+my @tests = map {glob $_ } 't/*.t', 't/*/*.t';
+
+my %module = (
     'NAME'    => 'Test::Without::Module',
     'VERSION_FROM'  => 'lib/Test/Without/Module.pm', # finds $VERSION
     'PREREQ_PM'    => {
@@ -15,6 +27,8 @@ WriteMakefile1(
     META_MERGE => {
         resources => {
             repository => 'https://github.com/Corion/test-without-module',
+            bugtracker => 'http://rt.cpan.org/Public/Dist/Display.html?Name=' . $distname,
+            license    => 'http://dev.perl.org/licenses/',        
         },
     },
     BUILD_REQUIRES => {
@@ -27,13 +41,19 @@ WriteMakefile1(
     # Make the version metadata explicit
     ($ExtUtils::MakeMaker::VERSION >= 6.3002 ?
       ('LICENSE' => 'perl', ) : ()),
-
 );
+
+sub get_module_info { %module }
+
+if ( ! caller ) {
+    regen_README($main_file);
+    #regen_EXAMPLES();
+    WriteMakefile1(get_module_info);
+} 
 
 sub WriteMakefile1 {  #Written by Alexandr Ciornii, version 0.21. Added by eumm-upgrade.
     my %params=@_;
-    my $eumm_version=$ExtUtils::MakeMaker::VERSION;
-    $eumm_version=eval $eumm_version;
+
     die "EXTRA_META is deprecated" if exists $params{EXTRA_META};
     die "License not specified" if not exists $params{LICENSE};
     if ($params{BUILD_REQUIRES} and $eumm_version < 6.5503) {
@@ -52,4 +72,28 @@ sub WriteMakefile1 {  #Written by Alexandr Ciornii, version 0.21. Added by eumm-
     
     WriteMakefile(%params);
 }
+
+sub regen_README {
+    eval {
+        require Pod::Readme;
+        
+        my $parser = Pod::Readme->new();      
+
+        # Read POD from Module.pm and write to README
+        $parser->parse_from_file($_[0], 'README');
+    };
+    eval {
+        require Pod::Markdown;
+        
+        my $parser = Pod::Markdown->new();      
+
+        # Read POD from Module.pm and write to README
+        $parser->parse_from_file($_[0]);
+        open my $fh, '>', 'README.mkdn'
+            or die "Couldn't open 'README.mkdn': $!";
+        print $fh $parser->as_markdown;
+    };
+}
+
+1;
 
