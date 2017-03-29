@@ -167,7 +167,7 @@ This module is released under the same terms as Perl itself.
 =head1 REPOSITORY
 
 The public repository of this module is
-L<http://github.com/Corion/test-without-module>.
+L<https://github.com/Corion/test-without-module>.
 
 =head1 SUPPORT
 
