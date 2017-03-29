@@ -6,6 +6,7 @@ MANIFEST.SKIP
 META.json
 META.yml
 README
+README.mkdn
 t/01-api.t
 t/02-block-use-module.t
 t/03-block-require-module.t
