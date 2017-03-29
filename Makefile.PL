@@ -14,7 +14,7 @@ WriteMakefile1(
 
     META_MERGE => {
         resources => {
-            repository => 'http://github.com/Corion/test-without-module',
+            repository => 'https://github.com/Corion/test-without-module',
         },
     },
     BUILD_REQUIRES => {
