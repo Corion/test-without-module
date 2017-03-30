@@ -12,6 +12,7 @@ t/02-block-use-module.t
 t/03-block-require-module.t
 t/04-import-export.t
 t/05-redefine.t
+t/06-missing-hidden-modules.t
 t/99-manifest.t
 t/99-pod.t
 t/99-todo.t
