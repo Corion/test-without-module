@@ -4,6 +4,7 @@ Todo:
   - Add way to allow only core modules (suggested by SREZIC)
 
 0.19 to be released
+  - Make error message more like the original Perl error message (haarg)
   - Makefile.PL overhaul (by Abzal Serekov)
   - Generate README.md
 

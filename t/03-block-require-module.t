@@ -12,7 +12,7 @@ BEGIN { use_ok( "Test::Without::Module", qw( Digest::MD5 )); };
   use Test::Without::Module qw( Digest::MD5 );
   ok( $@ ne '', "Loading raised error");
   like( $@, qr!^(Can't locate Digest/MD5.pm in \@INC|Digest/MD5.pm did not return a true value at)!, "Hid module");
-  is_deeply( [sort keys %{Test::Without::Module::get_forbidden_list()}],[ qw[ Digest::MD5 ]],"Module list" );
+  is_deeply( [sort keys %{Test::Without::Module::get_forbidden_list()}],[ qw[ Digest/MD5.pm ]],"Module list" );
   delete_package( 'Digest::MD5' );
 };
 
