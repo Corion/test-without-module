@@ -10,6 +10,9 @@ $eumm_version =~ s/_//;
 my $module = 'Test::Without::Module';
 (my $main_file = "lib/$module.pm") =~ s!::!/!g;
 (my $distname = $module) =~ s!::!-!g;
+my $content = do { local(*ARGV,$/)=[$main_file]; <> };
+(my $main_version)
+    = $content =~ m/ [^\n]* \$VERSION \s* = [^=] '([\d_.]+) [^\n]+ /gxms;
 
 my @tests = map {glob $_ } 't/*.t', 't/*/*.t';
 
@@ -17,19 +20,30 @@ my %module = (
     'NAME'    => 'Test::Without::Module',
     'VERSION_FROM'  => 'lib/Test/Without/Module.pm', # finds $VERSION
     'PREREQ_PM'    => {
-    #    'File::Slurp' => 0,
-    #    Only needed for testing
+        'Carp' => 0,
     }, # e.g., Module::Name => 1.1
-    ($] >= 5.005 ?    ## Add these new keywords supported since 5.005
-      (ABSTRACT_FROM => 'lib/Test/Without/Module.pm', # retrieve abstract from module
-       AUTHOR     => 'Max Maischein <corion@cpan.org>') : ()),
+    ABSTRACT_FROM => 'lib/Test/Without/Module.pm', # retrieve abstract from module
+    AUTHOR     => 'Max Maischein <corion@cpan.org>',
 
     META_MERGE => {
+        "meta-spec" => { version => 2 },
         resources => {
-            repository => 'https://github.com/Corion/test-without-module',
+            repository => {
+                web => 'https://github.com/Corion/test-without-module',
+                url => 'git://github.com/Corion/test-without-module.git',
+                type => 'git',
+            },
             bugtracker => 'http://rt.cpan.org/Public/Dist/Display.html?Name=' . $distname,
             license    => 'http://dev.perl.org/licenses/',        
         },
+        dynamic_config   => 0, # we promise to keep META.* up-to-date
+        x_static_install => 1, # we are pure Perl and don't do anything fancy
+        provides => {
+            $module => {
+                file    => $main_file,
+                version => $main_version,
+            }
+        }
     },
     BUILD_REQUIRES => {
         # Fairly long in core
@@ -39,8 +53,7 @@ my %module = (
     },
 
     # Make the version metadata explicit
-    ($ExtUtils::MakeMaker::VERSION >= 6.3002 ?
-      ('LICENSE' => 'perl', ) : ()),
+    'LICENSE' => 'perl',
 );
 
 sub get_module_info { %module }

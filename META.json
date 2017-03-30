@@ -3,8 +3,8 @@
    "author" : [
       "Max Maischein <corion@cpan.org>"
    ],
-   "dynamic_config" : 1,
-   "generated_by" : "ExtUtils::MakeMaker version 6.64, CPAN::Meta::Converter version 2.120921",
+   "dynamic_config" : 0,
+   "generated_by" : "ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.143240",
    "license" : [
       "perl_5"
    ],
@@ -23,6 +23,7 @@
       "build" : {
          "requires" : {
             "File::Find" : "0",
+            "File::Spec" : "0",
             "Test::More" : "0"
          }
       },
@@ -32,14 +33,28 @@
          }
       },
       "runtime" : {
-         "requires" : {}
+         "requires" : {
+            "Carp" : "0"
+         }
+      }
+   },
+   "provides" : {
+      "Test::Without::Module" : {
+         "file" : "lib/Test/Without/Module.pm",
+         "version" : "0.19"
       }
    },
    "release_status" : "stable",
    "resources" : {
+      "license" : [
+         "http://dev.perl.org/licenses/"
+      ],
       "repository" : {
-         "url" : "http://github.com/Corion/test-without-module"
+         "type" : "git",
+         "url" : "git://github.com/Corion/test-without-module.git",
+         "web" : "https://github.com/Corion/test-without-module"
       }
    },
-   "version" : "0.18"
+   "version" : "0.19",
+   "x_static_install" : 1
 }
