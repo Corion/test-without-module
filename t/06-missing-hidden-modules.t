@@ -28,5 +28,5 @@ Test::Without::Module->import('IO::Socket');
 
 ($failed,$error,$inc) = tryload( 'IO::Socket' );
 is $failed, 1, "a non-existing module fails to load";
-like $error, qr!Can't locate IO/Socket.pm in \@INC( \(you may need to install the IO::Socket module\))? \(\@INC contains: ...\) line (\d+).!, 'error message for hidden module shows @INC';
+like $error, qr!Can't locate IO/Socket.pm in \@INC( \(you may need to install the IO::Socket module\))? \(\@INC contains: ...\) line (\d+)!, 'error message for hidden module shows @INC';
 #diag $error;
