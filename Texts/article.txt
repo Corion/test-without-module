@@ -11,8 +11,8 @@ the optional modules seem not available. My preferred syntax for this is
 a pragma-like syntax :</p>
 
 <code>
-use Test::Without::Modules qw( HTML::Template );
-use Test::Without::Modules qr/^POE::/;
+use Test::Without::Module qw( HTML::Template );
+use Test::Without::Module qr/^POE::/;
 </code>
 
 <p>So, most of the magic will have to be installed in a sub called "import()"
