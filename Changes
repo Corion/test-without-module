@@ -3,7 +3,14 @@ Revision history for Perl extension Test::Without::Module.
 Todo:
   - Add way to allow only core modules (suggested by SREZIC)
 
-0.19 to be released
+0.20 20170409
+  - Make tests more resilient against old versions of Carp.pm (Paul Howarth)
+    Also addresses
+    https://rt.cpan.org/Public/Bug/Display.html?id=121002
+  - Typo fixes (Paul Howarth)
+  - Rework test suite, move author tests below xt/
+
+0.19 20170330
   - Make error message more like the original Perl error message (haarg)
   - Makefile.PL overhaul (by Abzal Serekov)
   - Generate README.md
