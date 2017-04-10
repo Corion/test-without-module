@@ -1,3 +1,6 @@
+
+Build Status [![Build Status](https://travis-ci.org/Corion/test-without-module.svg?branch=master)](https://github.com/Corion/test-without-module)
+
 # NAME
 
 Test::Without::Module - Test fallback behaviour in absence of modules
