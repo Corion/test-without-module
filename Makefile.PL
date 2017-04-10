@@ -106,7 +106,7 @@ sub regen_README {
             or die "Couldn't open 'README.mkdn': $!";
         print $fh <<STATUS;
 
-Build Status [![Build Status](https://travis-ci.org/Corion/test-without-module.svg?branch=master)](https://github.com/Corion/test-without-module)
+[![Build Status](https://travis-ci.org/Corion/test-without-module.svg?branch=master)](https://github.com/Corion/test-without-module)
 
 STATUS
         print $fh $parser->as_markdown;
