@@ -37,8 +37,6 @@ sub check {
     };
 }
 
-use Cwd;
-diag "Looking in ",getcwd;
 find({wanted => \&check, no_chdir => 1},
      grep { -d $_ }
          'blib', 'scripts', 'examples', 'bin', 'lib'
