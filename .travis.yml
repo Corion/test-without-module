@@ -27,6 +27,8 @@ install:
   - cpan-install ExtUtils::MakeMaker~6.68
 script:
   - cd $BUILD_DIR
+  - echo $BUILD_DIR
+  - find .
   - prove -blv $(test-dirs)
 branches:
   except:
