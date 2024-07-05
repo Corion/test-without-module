@@ -152,7 +152,7 @@ of a module.
 
 =head1 AUTHOR
 
-Copyright (c) 2003-2014 Max Maischein, E<lt>corion@cpan.orgE<gt>
+Copyright (c) 2003-2024 Max Maischein, E<lt>corion@cpan.orgE<gt>
 
 =head1 LICENSE
 
