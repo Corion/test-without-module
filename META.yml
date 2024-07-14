@@ -22,7 +22,7 @@ no_index:
     - inc
 requires:
   Carp: '0'
-  perl: '5.020'
+  perl: '5.006'
 resources:
   bugtracker: https://github.com/Corion/Test-Without-Module/issues
   license: https://dev.perl.org/licenses/
