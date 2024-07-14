@@ -5,6 +5,7 @@ Todo:
 
 0.22 2024-07-05
   - Fix test suite to not skip a failing test
+  - This release updates the Perl minimum version requirement to 5.20
 
 0.21 2022-12-10
   - Harden test suite against changed error message coming with 5.38
